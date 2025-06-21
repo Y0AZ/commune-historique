@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Base de données générée par les scripts (reconstructible)
+back/communes93.db
+*.sqlite
+*.sqlite3
+
+# macOS
+.DS_Store
+
+# Éditeurs / IDE
+.vscode/
+.idea/
+*.swp
