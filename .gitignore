@@ -10,7 +10,7 @@ venv/
 env/
 
 # Base de données générée par les scripts (reconstructible)
-back/communes93.db
+**/communes93.db
 *.sqlite
 *.sqlite3
 

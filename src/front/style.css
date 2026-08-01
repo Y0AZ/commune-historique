@@ -1,0 +1,80 @@
+:root {
+  --main-color: #2c3e50;
+  --accent-color: #3498db;
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --border-radius: 10px;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: darkgrey;
+  color: var(--text-color);
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+input, button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#resultat {
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 17px;
+  min-height: 40px;
+  color: var(--main-color);
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+  max-width: 800px;
+  border: 5px solid #ccc;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#evenements { 
+  max-height: 420px; 
+  overflow-y: auto; 
+}
+.evt { border-left: 3px solid #0d6efd; padding: 4px 10px; margin-bottom: 8px; background: #f8f9fa; }
+.evt-annee { font-weight: 700; margin-right: 8px; }
+.evt-type { font-size: .8rem; color: #0d6efd; text-transform: uppercase; }
+.evt-desc { font-size: .9rem; }
