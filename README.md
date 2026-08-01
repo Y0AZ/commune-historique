@@ -6,6 +6,8 @@ changements de nom et modifications de limites, de 1790 à aujourd'hui.
 
 Projet réalisé dans le cadre du cours **Humanité Numérique** (L3).
 
+![Interface de l'application : recherche d'une commune, frise chronologique des transformations et carte interactive](docs/interface.png)
+
 ## Aperçu
 
 On recherche une commune et une année : la carte se centre sur la commune actuelle
@@ -46,17 +48,22 @@ et une frise chronologique liste toutes les transformations qu'elle a connues
 
 ```
 .
-├── scrap_csv.py                 # scrape Wikipédia -> CSV (tableaux_communes_93/)
-├── geoApi_to_db.py              # API geo -> table `communes`
-├── scrap_to_db.py               # CSV -> tables historiques (+ colonne annee)
-├── tableaux_communes_93/        # snapshot CSV des données scrapées
-├── back/
-│   ├── app.py                   # API Flask + service des fichiers front
-│   └── communes93.db            # base générée (non versionnée)
-└── front/
-    ├── index.html
-    ├── script.js
-    └── style.css
+├── README.md
+├── requirements.txt
+├── docs/
+│   └── interface.png            # capture d'écran de l'application
+└── src/
+    ├── scrap_csv.py             # scrape Wikipédia -> CSV (tableaux_communes_93/)
+    ├── geoApi_to_db.py          # API geo -> table `communes`
+    ├── scrap_to_db.py           # CSV -> tables historiques (+ colonne annee)
+    ├── tableaux_communes_93/    # snapshot CSV des données scrapées
+    ├── back/
+    │   ├── app.py               # API Flask + service des fichiers front
+    │   └── communes93.db        # base générée (non versionnée)
+    └── front/
+        ├── index.html
+        ├── script.js
+        └── style.css
 ```
 
 ## Installation
@@ -74,10 +81,11 @@ pip install -r requirements.txt
 
 ## Construction de la base et lancement
 
-À exécuter depuis la racine du dépôt. La base `back/communes93.db` est créée
-automatiquement.
+Le code se trouve dans `src/`. La base `src/back/communes93.db` est créée
+automatiquement par les scripts.
 
 ```bash
+cd src
 python geoApi_to_db.py           # table `communes` (nécessite une connexion internet)
 python scrap_to_db.py            # tables historiques + colonne `annee`
 # python scrap_csv.py            # optionnel : régénère les CSV depuis Wikipédia
@@ -88,9 +96,9 @@ python app.py                    # http://127.0.0.1:5000
 
 ## API
 
-| Route                          | Description                                             |
-|--------------------------------|---------------------------------------------------------|
-| `GET /communes`                | Liste des noms de communes actuelles (autocomplétion)   |
+| Route                            | Description                                            |
+|----------------------------------|--------------------------------------------------------|
+| `GET /communes`                  | Liste des noms de communes actuelles (autocomplétion)  |
 | `GET /commune?nom=...&annee=...` | Commune + transformations jusqu'à l'année indiquée     |
 
 ## À propos du filtre par année
@@ -106,7 +114,3 @@ de l'année à quatre chiffres.
   disparue ou renommée peut apparaître sous plusieurs libellés.
 - Perspectives : contours géographiques des communes (GeoJSON), filtres temporels
   plus fins, déploiement en ligne.
-
-## Auteurs
-
-- Aymeric Yapi
